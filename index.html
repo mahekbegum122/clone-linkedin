@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(250, 235, 215, 0.733);
+
+        }
+
+        nav {
+            width: 100vw;
+            height: 70px;
+            background-color: white;
+            box-shadow: 0 0 10px gray;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .input {
+            width: 300px;
+            height: 53px;
+        }
+
+        .right i {
+            font-size: 20px;
+        }
+
+        .profile {
+            width: 35px;
+            border-radius: 50%;
+
+        }
+
+        .section1 {
+            padding: 20px;
+            width: 100vw;
+            margin-top: 100px;
+/* height: auto; */
+            position: relative;
+            z-index: 0;
+            
+        }
+
+        .left-1 {
+            width: 19vw;
+            min-height: auto;
+            cursor: pointer;
+
+        }
+
+
+        .mid-1 {
+            width: 40vw;
+            height: auto;
+
+            margin: 0 15px;
+
+        }
+
+        .right-1 {
+            width: 19vw;
+            height: 300vh;         
+            cursor: pointer;
+        }
+
+        .leftone {
+            width: 100%;
+            height: 300px;
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid gray;
+        }
+
+        .lefttwo {
+            width: 100%;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            
+        }
+
+        .leftthree {
+            width: 100%;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+
+
+
+
+        .leftfour {
+            width: 100%;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            padding-left: 20px;
+           
+        }
+
+        .midone {
+            width: 100%;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+
+
+        }
+
+
+        .midtwo {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            padding-top: 10px;
+        }
+
+        .midthree {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            padding-top: 10px;
+
+        }
+
+
+
+        .rightone {
+            width: 100%;
+            height: 550;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            padding: 10px;
+            cursor: pointer;
+
+        }
+
+       
+
+        .rightthree {
+            width: 100%;
+            height: 270px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid gray;
+            margin: 20px 0;
+            position: sticky;
+            /* z-index: 0; */
+            top: 100px;
+
+
+
+        }
+          
+
+
+        @media(max-width:1200px) {
+
+
+            .left-1 {
+                width: 27vw;
+            }
+
+            .right-1 {
+             /* width: 63vw; */
+                 display: none; 
+            }
+
+            .input {
+                display: none;
+            }
+
+            .right i {
+                font-size: 20px;
+            }
+
+            .right p {
+                font-size: 10px;
+            }
+            .rightthree{
+                width:70%;
+                height: 300px;
+            }
+            
+
+            .left img {
+                display: none;
+            }
+
+        }
+
+        @media(max-width:800px) {
+            .right-1 {
+             /* width:800px; */
+             display: none;
+            }
+
+            .left-1 {
+                /* display: none; */
+                width:800px
+            
+            }
+            .snist{
+               height:10px;
+            }
+
+            .mid-1 {
+                display: none;
+            }
+            .right{
+                /* width:100%; */
+                gap: 1px;
+            }
+           
+           
+        }
+
+        .banner {
+            width: 100%;
+        }
+
+        .sprofile {
+            width: 100px;
+            border-radius: 50%;
+            position: relative;
+            bottom: 50px;
+            left: 20px;
+            border: 5px solid white;
+        }
+
+        .name {
+            font-size: 25px;
+            font-weight: 500;
+            margin-left: 15px;
+            position: relative;
+            bottom: 50px;
+        }
+
+        .clg {
+            margin-left: 15px;
+            position: relative;
+            bottom: 50px;
+            font-size: 15px;
+        }
+
+        .locate {
+            margin-left: 15px;
+            position: relative;
+            bottom: 60px;
+            font-size: 15px;
+        }
+
+        .snist {
+            margin-left: 15px;
+            position: relative;
+            bottom: 80px;
+            font-size: 12px;
+            font-weight: 50px;
+            margin-bottom: 15px;
+        }
+
+        .connect {
+            font-size: 15px;
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+
+        .no {
+            font-size: 15px;
+            color: rgb(78, 78, 199);
+             margin-left: 115px;
+            margin-top: 10px;
+            display: flex;
+           /* margin-right: 15px; */
+           
+        }
+        .dno{
+            font-size: 15px;
+            color: rgb(78, 78, 199);
+            margin-left: 100px;
+            display: flex;
+            /* margin-top: 5px; */
+        }
+
+        .down {
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        .p {
+            font-size: 15px;
+            margin-left: 15px;
+            margin-top: 15px;
+            
+        }
+
+        .saved {
+            font-size: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: start;
+            gap: 25px;
+        }
+
+        .group {
+            font-size: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content:start;
+            gap: 25px;
+        }
+
+        .event {
+            font-size: 15px;
+            margin-top: 10px;
+            gap: 25px;
+            display: flex;
+            justify-content: start;
+        }
+
+        .midi {
+            width: 60px;
+            border-radius: 50%;
+
+            margin-left: 10px;
+
+        }
+
+        .btn {
+            margin-top: 15px;
+            width: 80%;
+            border: 2px solid gray;
+            border-radius: 20px;
+            justify-content: start;
+        }
+
+        .midfirst {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+             cursor: pointer; 
+        }
+
+        .midsecond {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 5px;
+            cursor: pointer;
+
+        }
+
+        .addback {
+            width: 100%;
+        }
+
+        .add {
+            width: 100px;
+
+            position: relative;
+            bottom: 60px;
+            left: 20px;
+            border: 2px solid white;
+        }
+
+        .addname {
+            font-size: 25px;
+            font-weight: 500;
+            margin-left: 15px;
+            position: relative;
+            bottom: 60px;
+        }
+
+        .addabout {
+            margin-left: 15px;
+            position: relative;
+            bottom: 60px;
+            font-size: 15px;
+        }
+
+        .adddes {
+            margin-left: 15px;
+            position: relative;
+            bottom: 60px;
+            font-size: 15px;
+        }
+
+        .follow {
+            margin-left: 15px;
+            position: relative;
+            bottom: 60px;
+            color: rgb(48, 48, 175);
+            font-size: 15px;
+            width: 80%;
+            border-color: rgb(25, 25, 150);
+            border-radius: 20px;
+            cursor: pointer;
+
+        }
+
+        .feed {
+            flex-direction: column;
+            /* align-items: center; */
+
+
+        }
+
+        .isn {
+            display: flex;
+            justify-content: start;
+         /* width: 20px; */
+         
+            height: 50px;
+            margin-left: 3px; 
+            border-radius: 20px;
+
+        }
+
+        .feedtop {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .fd {
+            margin-right: 10px;
+            margin-top: 5px;
+            color: #0e6cb4;
+            cursor: pointer;
+        }
+
+        .content {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .tesla {
+            width: 100%;
+            height: 800px;
+        }
+
+        .attributes {
+            display: flex;
+            justify-content: space-evenly;
+            /* margin-bottom: 5px; */
+            /* margin-top: 5px; */
+            cursor: pointer;
+
+        }
+
+        .reactions {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .right {
+            cursor: pointer;
+        }
+
+
+        .being {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .puz {
+            font-size: 12px;
+            text-align: left;
+            padding-left: 15px;
+            border-radius: 5px;
+            margin-bottom: -7px;
+        }
+        
+
+
+        .puz:hover {
+            background-color: rgb(203, 196, 196);
+            transition: 0.4s;
+        }
+
+        .bug {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: -5px;
+        }
+
+        .bug2 {
+            font-size: 13px;
+        }
+
+        .righttwonrml {
+            margin-top: 4px;
+        }
+
+        .itag {
+            margin-left: 70px;
+        }
+
+        .pad {
+            margin-bottom: -5px;
+        }
+
+        .pad:hover {
+            background-color: rgb(215, 216, 218);
+        }
+        .tryp{
+            margin-left: 20px;
+            gap:15px;
+        }
+        /* .img{
+            margin-bottom: 50px;
+        } */
+        
+        
+    </style>
+</head>
+
+<body>
+    <nav class=" d-flex  justify-content-around align-items-center">
+        <div class="left d-flex  justify-content-center align-items-center gap-3">
+            <img src="logo.png"  height="30px" alt="">
+            <div class="input">
+                <div class="input-group flex-wrap justify-content-center mt-2">
+                    <span class="input-group-text" id="addon-wrapping"><i
+                            class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                        aria-describedby="addon-wrapping">
+                </div>
+            </div>
+        </div>
+        <div class="right d-flex   justify-content-space-evenly align-items-center gap-4">
+            <div
+                class=" d-flex flex-column justify-content-end  align-items-center border-black border-bottom border-4">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="fa-solid fa-user-group"></i>
+                <p>Network</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="fa-solid fa-briefcase"></i>
+                <p>Jobs</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <i class="fa-solid fa-comment"></i>
+                <p>Messaging</p>
+            </div>
+            <div
+                class=" d-flex flex-column justify-content-center align-items-center  border-end border-black border-1 px-2">
+                <i class="fa-solid fa-bell fa-rotate-by"></i>
+                <p> Notifications</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center ">
+                <img src="me.png.jpg" class="profile  justify-content-center align-items-center mt-2" alt="">
+                <p>Me</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center ">
+                <i class="fa-solid fa-grip"></i>
+                <p>ForBusiness</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center ">
+
+                <i class="fa-solid fa-square" style="color: #FFD43B;"></i>
+                <p>TryPremium</p>
+            </div>
+        </div>
+    </nav>
+    <!-- section1 -->
+    <div class="section1 d-flex justify-content-center align-items-start">
+        <div class="left-1">
+            <div class="leftone">
+                <img src="me-b.png.jpg" class="banner" alt="">
+                <img src="me.png.jpg" class="sprofile" alt="">
+                <h1 class="name">Mahek Begum</h1>
+                <h6 class="clg">Student at Sreenidhi Institute of Science and Technology</h6>
+                <p class="locate">Being a member of BEING ZERO</p>
+                <p class="locate">Hyderabad, Telangana, India</p>
+                <div class="d-flex snist gap-2 ">
+                    <img src="snist.png" height="30px" alt="">
+                    <p> Sreenidhi Institute of Science and Technology</p>
+                </div>
+                
+            </div>
+            <div class="lefttwo">
+                <div class="d-flex justify-content-space-evenly">
+                    <h1 class="connect">Profile Viewers</h1>
+                    <h1 class="no">57</h1>
+                </div>
+                <div class="d-flex justify-content-space-evenly">
+                    <h1 class="down">Post impressions</h1>
+                <h1 class="dno">790</h1>
+                </div>
+            </div>
+            <div class="leftthree">
+                <p class="p">learn from 21k+ expert-led courses</p>
+                <div class="d-flex tryp"><i class="fa-solid fa-square"  style="color: #FFD43B;"></i>
+                    <h1 class="fs-6 ">Try premium for <i class="fa-solid fa-indian-rupee-sign"></i>0</h1></div>
+            </div>
+
+
+            <div class="leftfour">
+                <div class="saved"><i class="fa-solid fa-bookmark"></i>
+                    <h1 class="fs-6">Saved Items</h1>
+                </div>
+                <div class="group"><i class="fa-solid fa-people-group"></i>
+                    <h1 class="fs-6">Groups</h1>
+                </div>
+                <div class="event"><i class="fa-solid fa-calendar"></i>
+                    <h1 class="fs-6">Events</h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="mid-1">
+            <div class="midone ">
+                <div class="midfirst">
+
+                    <img src="me.png.jpg" class="midi" alt="">
+
+                    <button class="btn justift-content-start">Start a post</button>
+
+
+
+                </div>
+                <div class="midsecond">
+                    <div class="d-flex flex-column justify-content-end  align-items-center">
+                        <i class="fa-solid fa-image" style="color: #74C0FC;"></i>
+                        <p>Media</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center">
+                        <i class="fa-solid fa-calendar-days" style="color: #e68f47;"></i>
+                        <p>Event</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center">
+                        <i class="fa-solid fa-newspaper" style="color: #ca1e12;"></i>
+                        <p>Write Article</p>
+                    </div>
+                </div>
+            </div>
+            <div class="midtwo">
+                <div class="feedtop">
+                    <div class="isn">
+                        <img src="being_zero_logo.jpg" alt="">
+                        <div class="feed">
+                            <h1 class="being">Being Zero Pvt Ltd</h1>
+                            <h6 class="fs-6">579,57 followers</h6>
+                             <!-- <p class="pp">1d.<i class="fa-solid fa-earth-americas"></i></p>  -->
+                        </div>
+
+                    </div>
+                    <div>
+                        <h5 class="fd">+Follow</h5>
+                    </div>
+                </div>
+                <p class="content">Here are the top performers of Speed and Accuracy contest #154 hosted by BeingZero.
+                    🥈 Second - Mamidi Karthik of KL University Hyderabad Y22
+                   Let's applaud their hard work and commitment to excellence! Congratulations to all the winners! 🌟 
+                    hashtag#Coding hashtag#SpeedAndAccuracy hashtag#BeingZero hashtag#PowerfulYetHumble
+
+                    …more</p>
+                <img src="beinnng.jpg" class="tesla" alt="">
+                <div class="reactions">
+                    <div class="d-fex flex-column"><img src="react1.png" alt=""><img
+                            src="react3.png" alt=""><img src="react4.png" alt="">
+                        <p>67,3796</p>
+                    </div>
+                    <div>
+                        <p>56840 comments</p>
+                    </div>
+                </div>
+                <div class="attributes">
+                    <div class="d-flex flex-column justify-content-end  align-items-center"> <i
+                            class="fa-regular fa-thumbs-up"></i>
+
+
+                        <p>like</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center"><i
+                            class="fa-regular fa-comment"></i>
+                        <p>comment</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center"><i
+                            class="fa-solid fa-repeat"></i>
+                        <p>repost</p>
+                    </div>
+
+                    <div class=" d-flex flex-column justify-content-end  align-items-center">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <p>share</p>
+                    </div>
+                </div>
+            </div>
+            <div class="midthree">
+                <div class="feedtop">
+                    <div class="isn">
+                        <img src="uft.jpg" alt="">
+                        <div class="feed">
+
+                            <h1 class="fs-6">takeUforward</h1>
+                            <h6>2023,76 followers</h6>
+                            <!-- <p>2d.<i class="fa-solid fa-earth-americas"></i></p> -->
+                        </div>
+
+                    </div>
+                    <div>
+                        <h5 class="fd">+Follow</h5>
+                    </div>
+                </div>
+                <p class="content">Did you check out TUF+? Anyway, here is some information about TUF+, 
+                    the only platform you need for placement preparation.
+
+                    The TUF+ DSA Roadmap is a complete package for your DSA preparation for placements. We’re not the ones 
+                    saying this—20k daily visitors following this roadmap and 500k monthly users on our platform are! 🔥
+                    …more
+
+                    <img src="uft2.jpg" class="tesla" alt="">
+                <div class="reactions">
+                    <div> <img src="react1.png" alt=""><img src="react3.png" alt=""><img
+                            src="react4.png" alt="">
+                        <p>10,874</p>
+                    </div>
+                    <div>
+                        <p>79530 comments</p>
+                    </div>
+                </div>
+                <div class="attributes">
+                    <div class="d-flex flex-column justify-content-end  align-items-center"> <i
+                            class="fa-regular fa-thumbs-up"></i>
+
+
+                        <p>like</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center"><i
+                            class="fa-regular fa-comment"></i>
+                        <p>comment</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end  align-items-center"><i
+                            class="fa-solid fa-repeat"></i>
+                        <p>repost</p>
+                    </div>
+
+                    <div class=" d-flex flex-column justify-content-end  align-items-center">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <p>share</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right-1">
+            <div class="rightone">
+                <div class="m-2">
+                    <h5 class="m-2 text-left px-1">
+                        Trending Now
+                    </h5>
+                    <p class="text-secondary fw-4 text-left px-2 ">
+                        curated by LinkedIn News
+                    </p>
+                </div>
+
+                <div class="puz">
+                    <h3 class="fs-6">Passanger vehicles on slow lane</h3>
+                    <p>13h ago.1,8,65 readers</p>
+                </div>
+                <div class="puz">
+                    <h3 class="fs-6">World welcomes Indian tourists</h3>
+                    <p>13h ago.1,654 readers</p>
+                </div>
+                <div class="puz">
+                    <h3 class="fs-6">Banks locked in a credit war</h3>
+                    <p>14h ago.1,019 readers</p>
+                </div>
+                <div class="puz">
+                    <h3 class="fs-6">India inc to step up fresher hiring</h3>
+                    <p>14h ago.1,000 readers</p>
+                </div>
+                <h6 class="px-3 mb-2">Show more <i class="fa-solid fa-caret-down"></i></h6>
+                <h5 class="text-secondary px-3">Today's puzzles</h5>
+                <div class="d-flex justify-content-start align-items-start pad ">
+                    <img src="tango.png" class="px-1 mx-2 righttwonrml " width="33px" height="33px">
+                    <div class="d-flex justify-content-start align-items-start flex-column px-1">
+                        <p class=" bug">Tango</p>
+                        <p class="bug2">Harmonize the grid</p>
+                    </div>
+                    <i class=" itag fa-solid fa-caret-right fs-2"></i>
+                </div>
+                <div class="d-flex justify-content-start align-items-start pad ">
+                    <img src="queens.png" class="px-1 mx-2 righttwonrml " width="33px" height="33px">
+                    <div class="d-flex justify-content-start align-items-start flex-column px-1">
+                        <p class=" bug">Queens</p>
+                        <p class="bug2">Crown each region</p>
+                    </div>
+                    <i class=" itag fa-solid fa-caret-right fs-2"></i>
+                </div>
+                <div class="d-flex justify-content-start align-items-start pad ">
+                    <img src="pinpoint.png" class="px-1 mx-2 righttwonrml " width="33px" height="33px">
+                    <div class="d-flex justify-content-start align-items-start flex-column px-1">
+                        <p class=" bug">Pinpoint</p>
+                        <p class="bug2">Guess the category</p>
+                    </div>
+                    <i class=" itag fa-solid fa-caret-right fs-2"></i>
+                </div>
+                <div class="d-flex justify-content-start align-items-start pad ">
+                    <img src="crossclimb.png" class="px-1 mx-2 righttwonrml " width="33px" height="33px">
+                    <div class="d-flex justify-content-start align-items-start flex-column px-1">
+                        <p class=" bug">Crossclimb</p>
+                        <p class="bug2">Unlock trivia ladder</p>
+                    </div>
+                    <i class=" itag fa-solid fa-caret-right fs-2"></i>
+                </div>
+
+            </div>
+            <!-- <div class="righttwo"></div> -->
+            <div class="rightthree">
+                <img src="addback.png" class="addback" alt="">
+                <img src="main.jpg" class="add" alt="">
+                <h1 class="addname">aramco</h1>
+                <h6 class="addabout">
+                    Mahek, grow your career by following aramco</h6>
+                <p class="adddes">Visit the company page for aramco!</p>
+                <button class="follow">Follow</button>
+            <div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
